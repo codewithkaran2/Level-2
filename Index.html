@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Keyboard Battle</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            background: #222;
+            display: block;
+            margin: auto;
+            border: 2px solid white;
+        }
+        .keys {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .health-bar-container {
+            position: absolute;
+            width: 200px;
+            height: 20px;
+            background-color: gray;
+            border: 2px solid white;
+        }
+        .health-bar {
+            height: 100%;
+            background-color: red;
+            transition: width 0.2s;
+        }
+        .p1-health-container { left: 50px; top: 20px; }
+        .p2-health-container { right: 50px; top: 20px; }
+        .player-label {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .p1-label { left: 50px; top: 45px; color: blue; }
+        .p2-label { right: 50px; top: 45px; color: red; }
+        .level-box {
+            display: inline-block;
+            background-color: blue;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .health-text {
+            position: absolute;
+            top: 0;
+            font-weight: bold;
+        }
+        .p1-health-text { left: 50px; color: blue; }
+        .p2-health-text { right: 50px; color: red; }
+    </style>
+</head>
+<body>
+    <h1>Chaos Keyboard Battle Game</h1>
+
+    <div class="level-box">Level 1</div>
+
+    <div class="health-bar-container p1-health-container">
+        <div class="health-bar" id="p1HealthBar"></div>
+        <span class="health-text p1-health-text" id="p1HealthText">100%</span>
+    </div>
+    <div class="health-bar-container p2-health-container">
+        <div class="health-bar" id="p2HealthBar"></div>
+        <span class="health-text p2-health-text" id="p2HealthText">100%</span>
+    </div>
+
+    <div class="player-label p1-label">🟦 Player 1</div>
+    <div class="player-label p2-label">🟥 Player 2</div>
+
+    <div class="keys">
+        <h2>Player 1: <span id="p1Keys"></span></h2>
+        <h2>Player 2: <span id="p2Keys"></span></h2>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+    
+    <h2 id="winner"></h2>
+    <button onclick="restartGame()">Restart Game</button>
+
+    <script src="game.js"></script>
+</body>
+</html>
